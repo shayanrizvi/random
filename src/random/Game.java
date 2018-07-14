@@ -15,12 +15,18 @@ public class Game extends Canvas implements Runnable {
 	
 	// Create variables
 	private static final long serialVersionUID = -4584388369897487885L;							// class ID
+
+	public static final int WIDTH = 1366;														// screen width (static)
+	public static final int HEIGHT = 768;														// screen height (static)
 	
-	public static final int WIDTH =  (int)														// screen width
+	/*
+	public static final int WIDTH =  (int)														// screen width (dynamic)
 			Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-	public static final int HEIGHT = (int)														// screen height
+	public static final int HEIGHT = (int)														// screen height (dynamic)
 			Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-	public static final int maxScore = 2147483647;
+	*/
+	
+	public static final int MAXSCORE = 2147483647;												// maximum int value
 	public static int frames;																	// frames per second
 	
 	private boolean running;																	// running
@@ -162,7 +168,7 @@ public class Game extends Canvas implements Runnable {
 				try {                                                                           // 
 					                                                                            // 
 					PrintWriter out = new PrintWriter("score.txt");               				// open score file
-					out.print(Math.min(maxScore, highScore));                                   // write highscore to score file
+					out.print(Math.min(MAXSCORE, highScore));                                   // write highscore to score file
 					out.close();                                                                // close score file
 					                                                                            // 
 				} catch (FileNotFoundException e) {}											// do nothing if file not found (new file will be created)
