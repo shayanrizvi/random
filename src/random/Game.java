@@ -15,9 +15,9 @@ public class Game extends Canvas implements Runnable {
 	
 	// Create variables
 	private static final long serialVersionUID = -4584388369897487885L;							// class ID
-
+	
 	public static final int WIDTH = 1366;														// screen width (static)
-	public static final int HEIGHT = 768;														// screen height (static)
+	public static final int HEIGHT = 798;														// screen height (static)
 	
 	/*
 	public static final int WIDTH =  (int)														// screen width (dynamic)
