@@ -137,11 +137,11 @@ public class Legend {
 		}                                                                                        // 
                                                                                                  // 
 		g.setColor(Color.WHITE);                                                                 // 
-		g.fillRect(0, 130, Game.WIDTH, 10);                                                      // 
+		g.fillRect(0, 132, Game.WIDTH, 10);                                                      // 
 		g.fillRect(0, 704, Game.WIDTH, 10);                                                      // 
 		                                                                                         // 
 		g.setFont(new Font("Consolas", Font.BOLD, 20));                                          // 
-		g.drawString("L = EXIT", 1260, 760);                                                     // 
+		g.drawString("L = EXIT", Game.WIDTH - 120, Game.HEIGHT - 20);                            // 
 		                                                                                         // 
 		currentPage.render(g);                                                                   // render current legend page
 		                                                                                         // 

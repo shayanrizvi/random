@@ -32,6 +32,7 @@ public class LegendPage {
 	public LegendPage(String title, LinkedList<GameObject> objectList) {                         // 
 		                                                                                         // 
 		this.title = title;                                                                      // set page title
+		this.objectList = objectList;                                                            // copy object list reference
 		                                                                                         // 
 		int col = 0;                                                                             // initialize column
 		int row = 1;                                                                             // initialize row
@@ -51,8 +52,6 @@ public class LegendPage {
 			if(objectList.get(i).getS() == 0) objectList.get(i).setS(40);                        // resize object to display size
 			                                                                                     // 
 		}                                                                                        // 
-		                                                                                         // 
-		this.objectList = objectList;                                                            // copy object list reference
 		                                                                                         // 
 		for(int i = 0; i < objectList.size(); i++ ) {                                            // for each object in object list
 			                                                                                     // 

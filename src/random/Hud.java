@@ -70,19 +70,19 @@ public class Hud {
 			g.setColor(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));                                       // render game over screen
 			g.setFont(new Font("Impact", Font.BOLD, 50));                                                                // 
 			g.drawString("GAME OVER", (Game.WIDTH                                                                        // 
-					- g.getFontMetrics(g.getFont()).stringWidth("GAME OVER"))/2, 200);                                   // 
+					- g.getFontMetrics(g.getFont()).stringWidth("GAME OVER"))/2, Game.HEIGHT/4);                         // 
 			g.setColor(Color.WHITE);                                                                                     // 
 			g.drawString("TIME: " + game.getTime(), 100 + Game.WIDTH/2                                                   // 
-					- g.getFontMetrics(g.getFont()).stringWidth("TIME: "), 300);                                         // 
+					- g.getFontMetrics(g.getFont()).stringWidth("TIME: "), Game.HEIGHT/4 + 100);                         // 
 			g.drawString("PLAYER SCORE: " + game.getScore(), 100 + Game.WIDTH/2                                          // 
-					- g.getFontMetrics(g.getFont()).stringWidth("PLAYER SCORE: "), 350);                                 // 
+					- g.getFontMetrics(g.getFont()).stringWidth("PLAYER SCORE: "), Game.HEIGHT/4 + 150);                 // 
 			g.drawString("HIGH SCORE: " + game.getHighScore(), 100 + Game.WIDTH/2                                        // 
-					- g.getFontMetrics(g.getFont()).stringWidth("HIGH SCORE: "), 400);                                   // 
+					- g.getFontMetrics(g.getFont()).stringWidth("HIGH SCORE: "), Game.HEIGHT/4 + 200);                   // 
 			g.setFont(new Font("Impact", Font.ITALIC, 25));                                                              // 
 			g.drawString("L = LEGEND", (Game.WIDTH                                                                       // 
-					- g.getFontMetrics(g.getFont()).stringWidth("L = LEGEND"))/2, 500);                                  // 
+					- g.getFontMetrics(g.getFont()).stringWidth("L = LEGEND"))/2, Game.HEIGHT/4 + 250);                  // 
 			g.drawString("SPACEBAR  =  PLAY AGAIN", (Game.WIDTH                                                          // 
-					- g.getFontMetrics(g.getFont()).stringWidth("SPACEBAR  =  PLAY AGAIN"))/2, 550);                     // 
+					- g.getFontMetrics(g.getFont()).stringWidth("SPACEBAR  =  PLAY AGAIN"))/2, Game.HEIGHT/4 + 300);     // 
 			                                                                                                             // 
 		} else {                                                                                                         // 
 			                                                                                                             // 
@@ -143,8 +143,8 @@ public class Hud {
 				g.fillRect(165, 5, (Game.WIDTH - 330) *                                                                  // 
 						game.getPlayer().getHealth()/game.getPlayer().getMaxHealth() , 19);                              // 
 				g.setColor(game.getPlayer().getColor());                                                                 // 
-				g.drawString("Lives", 1236, 22);                                                                         // 
-				g.drawString(Integer.toString(game.getPlayer().getLives()), 1326, 22);                                   // 
+				g.drawString("Lives", Game.WIDTH - 120, 22);                                                             // 
+				g.drawString(Integer.toString(game.getPlayer().getLives()), Game.WIDTH - 40, 22);                        // 
 				                                                                                                         // 
 				g.setColor(ammoColor);                                                                                   // 
 				g.drawString("Ammo", 32, 42);                                                                            // 
@@ -152,16 +152,16 @@ public class Hud {
 				g.fillRect(165, 26, (Game.WIDTH - 330) *                                                                 // 
 						game.getPlayer().getAmmo()/game.getPlayer().getMaxAmmo(), 19);                                   // 
 				g.setColor(Color.YELLOW);                                                                                // 
-				g.drawString("Coins", 1236, 42);                                                                         // 
-				g.drawString(Integer.toString(game.getCoins().size()), 1326, 42);                                        // 
+				g.drawString("Coins", Game.WIDTH - 120, 42);                                                             // 
+				g.drawString(Integer.toString(game.getCoins().size()), Game.WIDTH - 40, 42);                             // 
 				                                                                                                         // 
 				g.setColor(Color.WHITE);                                                                                 // 
 				g.drawString("Score", 20, 67);                                                                           // 
 				g.drawString(Integer.toString(game.getScore()), 100, 67);                                                // 
-				g.drawString("Level", 1236, 67);                                                                         // 
-				g.drawString(Integer.toString(game.getLevel()), 1326, 67);                                               // 
-				g.drawString("FPS = " + Game.frames, 10, 760);                                                           // 
-				g.drawString("P = PAUSE", 1260, 760);                                                                    // 
+				g.drawString("Level", Game.WIDTH - 120, 67);                                                             // 
+				g.drawString(Integer.toString(game.getLevel()), Game.WIDTH - 40, 67);                                    // 
+				g.drawString("FPS = " + Game.frames, 20, Game.HEIGHT - 20);                                              // 
+				g.drawString("P = PAUSE", Game.WIDTH - 120, Game.HEIGHT - 20);                                           // 
 				                                                                                                         // 
 				g.setFont(new Font("Impact", Font.BOLD, 30));                                                            // 
 				g.drawString(Integer.toString(game.getTime()), (Game.WIDTH                                               // 
@@ -179,25 +179,29 @@ public class Hud {
 						case SpeedUp:{                                                                                   // render power up message
 							                                                                                             // 
 							g.setColor(Color.ORANGE);                                                                    // 
-							g.drawString(i + " " + Math.round(game.getPlayer().getSpeedUp() * 0.016), 250, 730);         // 
+							g.drawString(i + " " + Math.round(game.getPlayer().getSpeedUp() * 0.016),					 //
+									Game.WIDTH * 2/5, Game.HEIGHT - 60);        										 // 
 							break;                                                                                       // 
 	                                                                                                                     // 
 						} case SlowMo: {                                                                                 // 
 	                                                                                                                     // 
 							g.setColor(Color.MAGENTA);                                                                   // 
-							g.drawString(i + " " + Math.round(game.getPlayer().getSlowMo() * 0.016), 450, 730);          // 
+							g.drawString(i + " " + Math.round(game.getPlayer().getSlowMo() * 0.016),					 //
+									Game.WIDTH * 3/5, Game.HEIGHT - 60);        										 // 
 							break;                                                                                       // 
 						                                                                                                 // 
 						} case Freeze: {                                                                                 // 
 							                                                                                             // 
 							g.setColor(Color.CYAN);                                                                      // 
-							g.drawString(i + " " + Math.round(game.getPlayer().getFreeze() * 0.016), 650, 730);          // 
+							g.drawString(i + " " + Math.round(game.getPlayer().getFreeze() * 0.016),					 //
+									Game.WIDTH * 4/5, Game.HEIGHT - 60);       										     // 
 							break;                                                                                       // 
 	                                                                                                                     // 
 						} case Invincibility: {                                                                          // 
 	                                                                                                                     // 
 							g.setColor(game.getPlayer().getColor());                                                     // 
-							g.drawString(i + " " + Math.round(game.getPlayer().getInvincibility() * 0.016), 850, 730);   // 
+							g.drawString(i + " " + Math.round(game.getPlayer().getInvincibility() * 0.016),				 //
+									Game.WIDTH * 1/5, Game.HEIGHT - 60);   												 // 
 							break;                                                                                       // 
 	                                                                                                                     // 
 						} case HealthBoost: {                                                                            // 
@@ -206,11 +210,12 @@ public class Hud {
 							                                                                                             // 
 							if(game.getPlayer().getHealthBoost() == 8) {                                                 // 
 								                                                                                         // 
-								g.drawString(i + " MAX", 100, 760);                                                      // 
+								g.drawString(i + " MAX", Game.WIDTH / 5, Game.HEIGHT - 40);                              // 
 								                                                                                         // 
 							} else {                                                                                     // 
 								                                                                                         // 
-								g.drawString(i + " " + game.getPlayer().getHealthBoost(), 250, 760);                     // 
+								g.drawString(i + " " + game.getPlayer().getHealthBoost(),								 //
+										Game.WIDTH / 5, Game.HEIGHT - 40);                                               // 
 								                                                                                         // 
 							}                                                                                            // 
 							                                                                                             // 
@@ -222,11 +227,12 @@ public class Hud {
 	                                                                                                                     // 
 							if(game.getPlayer().getSpeedBoost() == 8) {                                                  // 
 								                                                                                         // 
-								g.drawString(i + " MAX", 300, 760);                                                      // 
+								g.drawString(i + " MAX", Game.WIDTH / 5 * 2, Game.HEIGHT - 40);                          // 
 								                                                                                         // 
 							} else {                                                                                     // 
 								                                                                                         // 
-								g.drawString(i + " " + game.getPlayer().getSpeedBoost(), 450, 760);                      // 
+								g.drawString(i + " " + game.getPlayer().getSpeedBoost(),								 //
+										Game.WIDTH / 5 * 2, Game.HEIGHT - 40);                     						 // 
 							                                                                                             // 
 							}                                                                                            // 
 							                                                                                             // 
@@ -238,11 +244,12 @@ public class Hud {
 	                                                                                                                     // 
 							if(game.getPlayer().getDamageBoost() == 8) {                                                 // 
 								                                                                                         // 
-								g.drawString(i + " MAX", 500, 760);                                                      // 
+								g.drawString(i + " MAX", Game.WIDTH / 5 * 3, Game.HEIGHT - 40);                          // 
 																														 // 
 							} else {                                                                                     // 
 								                                                                                         // 
-								g.drawString(i + " " + game.getPlayer().getDamageBoost(), 650, 760);                     // 
+								g.drawString(i + " " + game.getPlayer().getDamageBoost(),								 //
+										Game.WIDTH / 5 * 3, Game.HEIGHT - 40);                     						 // 
 							                                                                                             // 
 							}                                                                                            // 
 							                                                                                             // 
@@ -254,11 +261,12 @@ public class Hud {
 							                                                                                             // 
 							if(game.getPlayer().getAmmoBoost() == 8) {                                                   // 
 								                                                                                         // 
-								g.drawString(i + " MAX", 700, 760);                                                      // 
+								g.drawString(i + " MAX", Game.WIDTH / 5 * 4, Game.HEIGHT - 40);                          // 
 								                                                                                         // 
 							} else {                                                                                     // 
 								                                                                                         // 
-								g.drawString(i + " " + game.getPlayer().getAmmoBoost(), 850, 760);                       // 
+								g.drawString(i + " " + game.getPlayer().getAmmoBoost(),									 //
+										Game.WIDTH / 5 * 4, Game.HEIGHT - 40);                       					 // 
 								                                                                                         // 
 							}                                                                                            // 
 							                                                                                             // 

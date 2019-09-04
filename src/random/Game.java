@@ -16,15 +16,15 @@ public class Game extends Canvas implements Runnable {
 	// Create variables
 	private static final long serialVersionUID = -4584388369897487885L;							// class ID
 	
+	/*
 	public static final int WIDTH = 1366;														// screen width (static)
 	public static final int HEIGHT = 798;														// screen height (static)
+	*/
 	
-	/*
 	public static final int WIDTH =  (int)														// screen width (dynamic)
 			Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 	public static final int HEIGHT = (int)														// screen height (dynamic)
 			Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-	*/
 	
 	public static final int MAXSCORE = 2147483647;												// maximum int value
 	public static int frames;																	// frames per second
@@ -75,7 +75,7 @@ public class Game extends Canvas implements Runnable {
 		legend = new Legend();                                                                  // initialize legend
 		addKeyListener(new KeyInput(this));                                                     // add key listener
 		addMouseListener(new MouseInput(this));		                                            // add mouse listener
-//		addMouseMotionListener(new MouseInput(this));                                           // add mouse motion listener (for mouse lock within JFrame operation -- implementation pending)
+//		addMouseMotionListener(new MouseInput(this));                                           // add mouse motion listener (to lock mouse within game window -- implementation pending)
 		requestFocus();                                                                         // focus
 		                                                                                        // 
 	}                                                                                           // 
@@ -513,7 +513,7 @@ public class Game extends Canvas implements Runnable {
 				player.getCollected().clear();                                                  // clear collected list
 				if(score >= highScore) highScore = score;                                       // update highscore
 				                                                                                // 
-				if(r.nextInt(1500) == 0) {                                                      // randomize spawn time for tokens and power ups
+				if(r.nextInt(1000) == 0) {                                                      // randomize spawn time for tokens and power ups
 					                                                                            // 
 					switch(r.nextInt(7)) {                                                      // randomize item spawn
 					                                                                            // 
@@ -642,9 +642,9 @@ public class Game extends Canvas implements Runnable {
 			g.setColor(Color.WHITE);                                                            // 
 			g.setFont(new Font("Impact", Font.PLAIN, 24));                                      // 
 			g.drawString("L = LEGEND", (Game.WIDTH -                                            // 
-					g.getFontMetrics(g.getFont()).stringWidth("L = LEGEND"))/2, 570);           // 
+					g.getFontMetrics(g.getFont()).stringWidth("L = LEGEND"))/2, HEIGHT * 4/5);  // 
 			g.drawString("SPACEBAR = START", (Game.WIDTH - g.getFontMetrics(                    // 
-					g.getFont()).stringWidth("SPACEBAR = START"))/2, HEIGHT * 4/5);             // 
+					g.getFont()).stringWidth("SPACEBAR = START"))/2, HEIGHT * 5/6);             // 
 			                                                                                    // 
 		} else {                                                                                // 
 			                                                                                    // 
@@ -679,7 +679,7 @@ public class Game extends Canvas implements Runnable {
 	 */
 	public void spawn() {                                                                       // 
                                                                                                 // 
-		Coin defaultCoin = new Coin(                                                            // (default coin used to prevent level 1 from being skipped)
+		Coin defaultCoin = new Coin(                                                            // spawn default coin to prevent level 1 from being skipped
 				100 + r.nextInt(Game.WIDTH - 200),                                              // 
 				100 + r.nextInt(Game.HEIGHT - 200),                                             // 
 				20);                                                                            // 

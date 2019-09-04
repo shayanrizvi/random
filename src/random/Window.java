@@ -26,12 +26,12 @@ public class Window extends JFrame {
 		setPreferredSize(new Dimension(width, height));						// preferred size
 		setMaximumSize(new Dimension(width, height));						// maximum size
 		setMinimumSize(new Dimension(width, height));						// minimum size
-//	    setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);	// maximized
+	    setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);	// maximized
 		setResizable(false);												// resizability
 		setAlwaysOnTop(true);												// always on top
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);						// exit on close
 		setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));						// crosshair cursor
-//		setUndecorated(true);												// undecorated
+  		setUndecorated(true);												// undecorated
 		setVisible(true);													// visibility
 		add(game);															// add game
 		
